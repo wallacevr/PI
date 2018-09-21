@@ -23,7 +23,7 @@ public class JFPrincipal extends javax.swing.JFrame {
      * Creates new form JFPrincipal
      */
     private JFICursos frmcurso;
-   
+   private JFIBuscaPPC frmbuscappc;
    private JFIPPC frmppc;
     private JDLogin frmlogin;
     private String usuario;
@@ -63,10 +63,12 @@ public void mostralogin(){
         Jmnlogin = new javax.swing.JMenuItem();
         JmnSair = new javax.swing.JMenuItem();
         JmnControles = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jmnmanterpcc = new javax.swing.JMenuItem();
         JmnDisciplinas = new javax.swing.JMenuItem();
         jmncursos = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jmnmanterpcc = new javax.swing.JMenuItem();
+        JMnListaPPC = new javax.swing.JMenuItem();
         JmnSobre = new javax.swing.JMenu();
         JmenuSobre = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -141,22 +143,6 @@ public void mostralogin(){
             }
         });
 
-        jMenuItem1.setText("PCC ");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        JmnControles.add(jMenuItem1);
-
-        jmnmanterpcc.setText("Manter PCC");
-        jmnmanterpcc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnmanterpccActionPerformed(evt);
-            }
-        });
-        JmnControles.add(jmnmanterpcc);
-
         JmnDisciplinas.setText("Disciplinas");
         JmnDisciplinas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,6 +158,34 @@ public void mostralogin(){
             }
         });
         JmnControles.add(jmncursos);
+
+        jMenu5.setText("PPC");
+
+        jMenuItem1.setText("PCC ");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem1);
+
+        jmnmanterpcc.setText("Manter PCC");
+        jmnmanterpcc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmnmanterpccActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jmnmanterpcc);
+
+        JMnListaPPC.setText("LISTAR");
+        JMnListaPPC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMnListaPPCActionPerformed(evt);
+            }
+        });
+        jMenu5.add(JMnListaPPC);
+
+        JmnControles.add(jMenu5);
 
         JmnSistema.add(JmnControles);
 
@@ -333,6 +347,26 @@ public void mostralogin(){
         }
     }//GEN-LAST:event_jmnmanterpccActionPerformed
 
+    private void JMnListaPPCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMnListaPPCActionPerformed
+        // TODO add your handling code here:
+        
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        final Dimension scrnsize = toolkit.getScreenSize();
+        int width = (int)scrnsize.getWidth();
+        int heigth = (int)scrnsize.getHeight();
+        if(frmbuscappc==null){
+            frmbuscappc = new JFIBuscaPPC();
+
+            JAreaTrabalho.add(frmbuscappc);
+        }
+        frmbuscappc.setVisible(true);
+        try{
+            frmbuscappc.setSelected(true);
+        }catch(java.beans.PropertyVetoException e){
+
+        }
+    }//GEN-LAST:event_JMnListaPPCActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -406,6 +440,7 @@ public void mostralogin(){
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane JAreaTrabalho;
+    private javax.swing.JMenuItem JMnListaPPC;
     private javax.swing.JMenuItem JmenuSobre;
     private javax.swing.JMenu JmnCadastro;
     private javax.swing.JMenu JmnControles;
@@ -418,6 +453,7 @@ public void mostralogin(){
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem13;
